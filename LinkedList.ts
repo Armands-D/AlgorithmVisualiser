@@ -43,10 +43,23 @@ class LinkedList {
 }
 
 let LL: LinkedList = new LinkedList();
-console.log(LL);
-LL.insertFront("1");
-console.log(LL);
-LL.insertFront("2");
-console.log(LL);
-LL.insertBack("3");
-console.log(LL);
+
+function createElement(item: string){
+  const el = document.createElement('div');
+  el.setAttribute('id', 'll_element');
+  el.innerHTML = item;
+  return el;
+}
+
+function main(){
+  const ll_holder = document.getElementById('ll_holder');
+}
+
+function add(){
+  const ll_holder = document.getElementById('ll_holder');
+  if(ll_holder ==  null){return;}
+  ll_holder.append(createElement('item'))
+  console.log(ll_holder);
+}
+
+main()
