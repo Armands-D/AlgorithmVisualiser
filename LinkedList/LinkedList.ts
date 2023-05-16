@@ -42,25 +42,42 @@ class LinkedList {
   }
 }
 
-function createElement(item: string){
-  const el = document.createElement('div');
-  el.setAttribute('id', 'll_element');
-  const p = document.createElement('p');
-  p.innerHTML = item;
-  el.append(p);
-  return el;
+class LLDomController {
+  linked_list : LinkedList;
+
+  constructor(){
+    this.linked_list = new LinkedList();
+  }
+
+  createLLElement(item: string){
+    const el = document.createElement('div');
+    el.setAttribute('id', 'll_element');
+    const p = document.createElement('p');
+    p.innerHTML = item;
+    el.append(p);
+    return el;
+  }
+
+  ex(){
+    console.console.log('1');
+    
+  }
+  
+  add(){
+    const ll_holder = document.getElementById('ll_holder');
+    if(ll_holder ==  null){
+      console.log('Err: ll_holder is null');
+      return;
+    }
+    this.createLLElement('item')
+    ll_holder.append(this.createLLElement('item'));
+  }
 }
 
-function add(){
-  const ll_holder = document.getElementById('ll_holder');
-  if(ll_holder ==  null){return;}
-  ll_holder.append(createElement('item'))
-  console.log(ll_holder);
-}
 
 function main(){
-  let LL: LinkedList = new LinkedList();
-  const ll_holder = document.getElementById('ll_holder');
+  let LL: LLDomController = new LLDomController();
+  document.getElementById('add_element').addEventListener('click', LL.add);
 }
 
 main()
