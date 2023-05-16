@@ -42,17 +42,13 @@ class LinkedList {
   }
 }
 
-let LL: LinkedList = new LinkedList();
-
 function createElement(item: string){
   const el = document.createElement('div');
   el.setAttribute('id', 'll_element');
-  el.innerHTML = item;
+  const p = document.createElement('p');
+  p.innerHTML = item;
+  el.append(p);
   return el;
-}
-
-function main(){
-  const ll_holder = document.getElementById('ll_holder');
 }
 
 function add(){
@@ -60,6 +56,11 @@ function add(){
   if(ll_holder ==  null){return;}
   ll_holder.append(createElement('item'))
   console.log(ll_holder);
+}
+
+function main(){
+  let LL: LinkedList = new LinkedList();
+  const ll_holder = document.getElementById('ll_holder');
 }
 
 main()
